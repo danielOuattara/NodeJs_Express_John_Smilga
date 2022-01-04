@@ -1,7 +1,7 @@
  
 
-const { readFile, writeFile, write } = require("fs");
-const { result } = require("lodash");
+const { readFile, writeFile } = require("fs");
+// const { result } = require("lodash");
 
 readFile("./folder/01_first.txt", "utf8", (err, data) => {
     if (err) {
@@ -29,11 +29,4 @@ readFile("./folder/01_first.txt", "utf8", (err, data) => {
         });
     })
 });
-
-
-// const third = writeFile("./third.txt"," Third text ", "utf8");
-// const fourth = writeFile("./forth.txt","Foth text", "utf8");
-
-// console.log(first, second);
-
 

@@ -48,22 +48,22 @@
 
 //------------------------------------------------------------
 
-// const sayHello = require('./folder/sayHello');
-// const names = require('./folder/names.js');
-// const objects = require('./folder/object');
-// const { log } = require('console');
+const sayHello = require('./folder/sayHello');
+const names = require('./folder/names.js');
+const objects = require('./folder/object');
+const { log } = require('console');
 
-// const { john, peter } = names;
-// sayHello("Susan");
-// sayHello(john);
-// sayHello(peter);
+const { john, peter } = names;
+sayHello("Susan");
+sayHello(john);
+sayHello(peter);
 
-// console.log(objects);
-// const { items, person, Person2 } = objects;
-// console.log(items[0]);
-// console.log(items[1]);
-// console.log(person.name)
-// console.log(Person2)
+console.log(objects);
+const { items, person, Person2 } = objects;
+console.log(items[0]);
+console.log(items[1]);
+console.log(person.name)
+console.log(Person2)
 
 
 //--------------------------------------------------------------

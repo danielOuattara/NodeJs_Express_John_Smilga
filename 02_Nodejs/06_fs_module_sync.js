@@ -7,7 +7,9 @@ console.log("start");
 const first = readFileSync("./folder/01_first.txt", "utf8");
 const second = readFileSync("./folder/02_second.txt", "utf8");
 
-writeFileSync('./folder/resul-sync.txt', `here is the result: ${first} , ${second}`, {flag: 'a'})
+console.log(first,second)
+
+writeFileSync('./folder/resul-sync.txt', `here is the result: ${first}${second}\n`, {flag: 'a'})
 
 
 console.log('done with this task')
