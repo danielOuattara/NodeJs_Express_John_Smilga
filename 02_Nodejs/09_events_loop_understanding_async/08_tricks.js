@@ -15,6 +15,9 @@
 
 // // asynchronous pattern
 
+// /* Promises 
+// --------------*/
+
 // const { readFile } = require("fs");
 
 // const getText = (path) => {
@@ -29,8 +32,7 @@
 //     })
 // }
 
-// /* Promises 
-// --------------*/
+
 // getText("./../folder/01_first.txt")
 // .then(result => console.log(result))
 // .catch(err => console.log(err.message))
@@ -39,6 +41,7 @@
 
 /* Async/ Await 
 ----------------*/
+
 // const { readFile } = require("fs");
 
 // const getText = (path) => {
@@ -54,13 +57,15 @@
 // }
 
 // const reader = async () => {
-//     const first = await getText("./../foldr/01_first.txt");
+//     const first = await getText("./../folder/01_first.txt");
 //     console.log(first);        
 // }
 
 // reader();
 
-//=========================================================================
+//----------------------------------------------------------------
+
+// try...catch
 
 // const { readFile } = require("fs");
 
@@ -88,24 +93,26 @@
 // reader();
 
 
-//=========================================================================
+//-----------------------------------------------------------------
 
-// const { readFile, writeFile } = require("fs");
-// const util = require("util");
-// const readFilePromise = util.promisify(readFile);
-// const writeFilePromise = util.promisify(writeFile);
+// try...catch
 
-// const reader = async () => {
-//     try {   
-//         const first = await readFilePromise("./../folder/01_first.txt", "utf8");       
-//         const second = await readFilePromise("./../folder/02_second.txt", "utf8");
-//         await writeFilePromise("./../folder/05_ fifth.txt", `This is async/await \n${first}\n${second}`);       
-//     } catch(err) {
-//         console.log(err)
-//     }
-// }
+const { readFile, writeFile } = require("fs");
+const util = require("util");
+const readFilePromise = util.promisify(readFile);
+const writeFilePromise = util.promisify(writeFile);
 
-// reader();
+const reader = async () => {
+    try {   
+        const first = await readFilePromise("./../folder/01_first.txt", "utf8");       
+        const second = await readFilePromise("./../folder/02_second.txt", "utf8");
+        await writeFilePromise("./../folder/05_ fifth.txt", `This is async/await \n${first}\n${second}`);       
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+reader();
 
 //=========================================================================
 
