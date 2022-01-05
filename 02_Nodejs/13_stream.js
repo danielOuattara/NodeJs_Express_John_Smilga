@@ -5,10 +5,12 @@ const stream = createReadStream("./folder/hugeFile.txt" , {
     highWaterMark: 90000 , encoding: "utf8" } 
 );
 
-stream.on("data", (result)=> {
-    console.log(result)
+stream.on("data", (chunk) => {
+    console.log(chunk)
 });
 
-stream.on("error", (err)=> {
+stream.on("error", (err) => {
     console.log(err)
 });
+
+stream.on("end",() => console.log("Terminated"))

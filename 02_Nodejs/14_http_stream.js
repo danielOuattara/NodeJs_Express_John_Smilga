@@ -1,6 +1,5 @@
 
 // const http = require("http");
-
 // const fs = require("fs");
 
 // http.createServer((req, res) => {
@@ -14,15 +13,14 @@
 // ========================================================
 
 const http = require("http");
-
 const fs = require("fs");
 
 http.createServer((req, res) => {
     const fileStream = fs.createReadStream("./folder/hugeFile.txt", "utf8")
-    fileStream.on("open", ()=> {
+    fileStream.on("open", () => {
         fileStream.pipe()
     })
-    fileStream.on("error", (err)=> {
+    fileStream.on("error", (err) => {
         res.end(err)
     })
 

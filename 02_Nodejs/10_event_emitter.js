@@ -18,10 +18,13 @@
 
 // customEmitter.on ("response", () => {
 //     console.log("data received");
-// })
+// });
 // customEmitter.on ("response", () => {
 //     console.log("data received again");
-// })
+// });
+// customEmitter.on ("response", () => {
+//     console.log("data received 3rd time");
+// });
 
 // customEmitter.emit("response");
 
@@ -40,5 +43,5 @@ customEmitter.on ("response", () => {
 })
 
 customEmitter.emit("response", "daniel", 37);
-customEmitter.emit("response",  37, 'danielB'); // caution !
+customEmitter.emit("response",  37, 'danielB'); // caution  order of parameters !
 
