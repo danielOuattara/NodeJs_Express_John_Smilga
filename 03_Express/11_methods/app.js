@@ -14,7 +14,7 @@ app.use(express.json());
 
 //-----------------------------------------------------------------------------------
 app.get('/', (req, res)=> {
-  return res.send('<h1>Welcome, home</h1>');
+  return res.status(200).send('<h1>Welcome, home</h1>');
 });
 
 //-----------------------------------------------------------------------------------
@@ -77,13 +77,11 @@ app.delete('/api/people/:id', (req, res) => {
   if (!person) {
     return res.status(404).json({ success: false, msg: `no person with id ${req.params.id}`});
   }
-  const newPeople = people.filter(
-    (person) => person.id !== Number(req.params.id)
-    )
+  const newPeople = people.filter((person) => person.id !== Number(req.params.id));
     return res.status(200).json({ success: true, data: newPeople });
   })
 
 //----------------------------------------------------------------------------------
   app.listen(5000, () => {
-  console.log('Server is listening on port 5000....');
+  console.log('Server is listening on port 5000...');
 });

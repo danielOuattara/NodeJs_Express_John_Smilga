@@ -6,7 +6,10 @@ const app = express();
 // setup static and middleware
 app.use(express.static('./public'));
 
-// app.get('/', (req, res) => {
+
+// Below is Not Needed !
+
+// app.get('/', (req, res) => { 
 //   res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
 //   adding to static assets
 //   SSR

@@ -24,4 +24,6 @@ http.createServer((req, res) => {
         res.end(err)
     })
 
-}).listen(5000)
+}).listen(5000, ()=> {
+    console.log("Server running on porrt 5000")
+})

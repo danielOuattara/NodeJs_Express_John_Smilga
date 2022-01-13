@@ -7,13 +7,19 @@ const authorize = require('./authorize');
 //logger middleware active for every routes
 app.use([logger, authorize]);
 
-//logger middleware active for '/api' route and any other route below it , like /api/***etc 
+/*logger middleware active for '/api' route and any other route below it , 
+like /api/*** etc */
+
 // app.use('/api', logger);
 
 
 // api/home/about/products
 app.get('/', (req, res) => {
   res.send('Home');
+});
+
+app.get('/daniel',  (req, res) => {
+  res.send("Welcome Daniel !");
 });
 
 app.get('/about', (req, res) => {
