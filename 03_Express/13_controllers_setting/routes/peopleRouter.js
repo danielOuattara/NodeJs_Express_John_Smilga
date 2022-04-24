@@ -12,7 +12,6 @@ const {
 
 /* Method 1
 ---------------- */
-
 // router.get('/', getPeople );
 // router.post('/', createPeople);
 // router.post('/postman', createPeoplePostman);
@@ -24,7 +23,6 @@ const {
 
 /* Method 2 : chaining identical routes requests
 -------------------------------------------------- */
-
 router.route('/').get(getPeople).post(createPeople);
 router.route('/postman').post(createPeoplePostman);
 router.route(':/id').put(updatePeople).delete(deletePeople);

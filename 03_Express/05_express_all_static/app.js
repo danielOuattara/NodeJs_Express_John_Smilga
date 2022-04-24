@@ -7,13 +7,14 @@ const app = express();
 app.use(express.static('./public'));
 
 
-// Below is Not Needed !
+// Below is Not Needed !  
+// 1- added to static assets , then sever will serve "index.html" by default
 
 // app.get('/', (req, res) => { 
 //   res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
-//   adding to static assets
-//   SSR
 // })
+
+// 2-SSR with Template Engines (Pug, EJS, ...)
 
 app.all('*', (req, res) => {
   res.status(404).send('resource not found');

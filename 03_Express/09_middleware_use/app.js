@@ -1,41 +1,40 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const logger = require('./logger');
-const authorize = require('./authorize');
+const logger = require("./logger");
+const authorize = require("./authorize");
 
-
-//logger middleware active for every routes
+// logger middleware active for every routes
+// app.use(logger);
 app.use([logger, authorize]);
 
-/*logger middleware active for '/api' route and any other route below it , 
+/* logger middleware active for '/api' route and any other route inside '/api , 
 like /api/*** etc */
 
-// app.use('/api', logger);
+// app.use('/api'lqbgg, logger);
 
-
-// api/home/about/products
-app.get('/', (req, res) => {
-  res.send('Home');
+// api/home/about/produécts
+app.get("/", (req, res) => {
+  res.send("Home");
 });
 
-app.get('/daniel',  (req, res) => {
+app.get("/daniel", (req, res) => {
   res.send("Welcome Daniel !");
 });
 
-app.get('/about', (req, res) => {
-  res.send('About');
+app.get("/about", (req, res) => {
+  res.send("About");
 });
 
-app.get('/api/products', (req, res) => {
-  res.send('Products');
+app.get("/api/products", (req, res) => {
+  res.send("Products");
 });
 
-app.get('/api/items', (req, res) => {
+app.get("/api/items", (req, res) => {
   // test for: /api/items?user=daniel
   console.log(req.user);
-  res.send('Items');
+  res.send("Items");
 });
 
 app.listen(5000, () => {
-  console.log('Server is listening on port 5000....');
+  console.log("Server is listening on port 5000....");
 });
