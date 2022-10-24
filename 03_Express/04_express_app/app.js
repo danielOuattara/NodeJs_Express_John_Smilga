@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 
 // setup static and middleware: here allows to fetch any file in public/
-// here: a static asset, hte server doesn't change anything there, it just serves them
+// here: a static asset, the server doesn't change anything there, it just serves them
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
