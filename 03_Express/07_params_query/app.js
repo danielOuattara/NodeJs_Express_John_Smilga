@@ -36,6 +36,7 @@ app.get("/api/products/:productID/reviews/:reviewID", (req, res) => {
 
 // query
 app.get("/api/v1/search", (req, res) => {
+  // --> /api/v1/search?name=john
   console.log(req.query);
   const reqQuery = req.query;
   res.json({ response: reqQuery });
