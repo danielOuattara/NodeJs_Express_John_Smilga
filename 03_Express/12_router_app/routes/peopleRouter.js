@@ -61,4 +61,8 @@ router.delete("/:id", (req, res) => {
   return res.status(200).json({ success: true, data: newPeople });
 });
 
+//----------------------------------------------------------------------------------
+
+console.log("router = ", router);
+
 module.exports = router;
