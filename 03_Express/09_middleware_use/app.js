@@ -3,16 +3,17 @@ const app = express();
 const logger = require("./logger");
 const authorize = require("./authorize");
 
-// logger middleware active for every routes
-// app.use(logger);
-app.use([logger, authorize]);
+/*logger middleware active for every routes 
+---------------------------------------------*/
+// app.use(logger); /* single middleware */
+// app.use([logger, authorize]); /* multiple middlewares */
 
-/* logger middleware active for '/api' route and any other route inside '/api , 
-like /api/*** etc */
+/* logger middleware active for '/api' route and any other route inside '/api 
+-------------------------------------------------------------------------------*/
+// app.use("/api", logger);
+app.use("/api", [logger, authorize]);
 
-// app.use('/api'lqbgg, logger);
-
-// api/home/about/produécts
+// api/home/about/products
 app.get("/", (req, res) => {
   res.send("Home");
 });
