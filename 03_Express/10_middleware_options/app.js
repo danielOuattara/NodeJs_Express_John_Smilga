@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("About");SVGMarkerElementg()
+  res.send("About");
 });
 
 app.get("/api/products", (req, res) => {
