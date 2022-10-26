@@ -1,4 +1,3 @@
-
 // const logger = (req, res, next) => {
 //   const method = req.method;
 //   const url = req.url;
@@ -15,5 +14,4 @@ module.exports = (req, res, next) => {
   const time = new Date().getFullYear();
   console.log(method, url, time);
   next();
-}
-
+};

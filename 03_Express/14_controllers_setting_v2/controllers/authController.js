@@ -3,5 +3,5 @@ exports.login = (req, res) => {
   if (name) {
     return res.status(200).send(`<h2>Welcome ${name}</h2>`);
   }
-  res.status(401).send('Please Provide Credentials');
-}
+  res.status(401).send("Please Provide Credentials");
+};
