@@ -24,11 +24,6 @@ app.use(express.json());
 // });
 
 //-----------------------------------------------------------------------------------
-app.get("/api/people", (req, res) => {
-  res.status(200).json({ success: true, people });
-});
-
-//-----------------------------------------------------------------------------------
 app.post("/api/people", (req, res) => {
   const { name } = req.body;
   if (!name) {
@@ -36,7 +31,9 @@ app.post("/api/people", (req, res) => {
       .status(400)
       .json({ success: false, msg: "please provide name value" });
   }
-  res.status(201).json({ success: true, name });
+  people = [...people, { id: people.length + 1, name }];
+  console.log("people = ", people);
+  return res.status(201);
 });
 
 //-----------------------------------------------------------------------------------
@@ -47,14 +44,17 @@ app.post("/api/postman/people", (req, res) => {
       .status(400)
       .json({ success: false, msg: "please provide name value" });
   }
-  res.status(201).json({ success: true, data: [...people, name] });
+  people = [...people, { id: people.length + 1, name }];
+  console.log("people = ", people);
+  res.status(201).json({ success: true, data: people });
 });
 
 //-----------------------------------------------------------------------------------
 app.post("/login", (req, res) => {
   const { name } = req.body;
   if (name) {
-    return res.status(201).send(`<h2>Welcome ${name}</h2>`);
+    people = [...people, { id: people.length + 1, name }];
+    return res.status(201).redirect("index.html");
   }
   res.status(400).send("Please Provide Credentials");
 });
@@ -67,7 +67,7 @@ app.put("/api/people/:id", (req, res) => {
       .status(404)
       .json({ success: false, msg: `no person with id ${id}` });
   }
-  
+
   const { name } = req.body;
   if (!name) {
     return res
@@ -98,6 +98,11 @@ app.delete("/api/people/:id", (req, res) => {
     (person) => person.id !== Number(req.params.id)
   );
   return res.status(200).json({ success: true, data: newPeople });
+});
+
+//-----------------------------------------------------------------------------------
+app.get("/api/people", (req, res) => {
+  res.status(200).json({ success: true, people });
 });
 
 //----------------------------------------------------------------------------------
