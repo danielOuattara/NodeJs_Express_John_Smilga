@@ -1,14 +1,12 @@
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
-    getPeople,
-    createPeople,
-    createPeoplePostman,
-    updatePeople,
-    deletePeople
-} = require('./../controllers/peopleController')
-
+  getPeople,
+  createPeople,
+  createPeoplePostman,
+  updatePeople,
+  deletePeople,
+} = require("./../controllers/peopleController");
 
 /* Method 1
 ---------------- */
@@ -20,12 +18,12 @@ const {
 
 // module.exports = router;
 
-
 /* Method 2 : chaining identical routes requests
 -------------------------------------------------- */
-router.route('/').get(getPeople).post(createPeople);
-router.route('/postman').post(createPeoplePostman);
-router.route(':/id').put(updatePeople).delete(deletePeople);
+router.route("/").get(getPeople).post(createPeople);
+router.route("/postman").post(createPeoplePostman);
+router.route(":/id").put(updatePeople).delete(deletePeople);
 
+// console.log("router =", router);
 
 module.exports = router;
